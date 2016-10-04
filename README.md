@@ -1,12 +1,17 @@
 # Go Replacer
 
-It is a simple library that replace strings between Start Text and End Text.  
-
-You can use to replace environment data into your strings for example, to replace a map of string data or to replace using your own custom function by parameter.  
+It is a simple library that replace strings using callback function and search between Start Text and End Text to do it.  
 
 # CI
 
 [![Build Status](https://travis-ci.org/prsolucoes/goreplacer.svg?branch=master)](https://travis-ci.org/prsolucoes/goreplacer)
+
+# Advantages
+
+1. You can replace dinamically a MAP of strings inside your string  
+2. You can replace using existing functions in Go like os.Getenv and replace any environment variable in your string
+3. You can replace using your own custom functions that search on database, make a HTTP request or something else before replace
+4. One line of code and everything works: goreplacer.*
 
 # Examples
 
