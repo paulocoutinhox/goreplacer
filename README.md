@@ -1,8 +1,8 @@
 # Go Replacer
 
-It is a simple library that replace strings between Start Text and End Text.
+It is a simple library that replace strings between Start Text and End Text.  
 
-You can use to replace environment data into your strings for example, to replace a map of string data or to replace using your own custom function by parameter.
+You can use to replace environment data into your strings for example, to replace a map of string data or to replace using your own custom function by parameter.  
 
 # CI
 
