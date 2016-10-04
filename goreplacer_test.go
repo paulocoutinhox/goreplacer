@@ -73,7 +73,7 @@ func TestReplaceWihoutEndText(t *testing.T) {
 	}
 }
 
-func TestReplaceByEnvironmentVars(t *testing.T) {
+func TestReplaceByEnvVarsWithGetenvFunc(t *testing.T) {
 	text := "The home var is: ENV{MY_HOME}"
 	expected := "The home var is: /tmp"
 	os.Setenv("MY_HOME", "/tmp")
@@ -95,6 +95,18 @@ func TestReplaceWithThreeValues(t *testing.T) {
 	}
 
 	result := ReplaceByMapOfString(text, "@|", "|@", data)
+
+	if result != expected {
+		t.Errorf("Expected: %v, But it was: %v", expected, result)
+	}
+}
+
+func TestReplaceByEnvVars(t *testing.T) {
+	text := "The home var is: ENV{MY_HOME}"
+	expected := "The home var is: /tmp"
+	os.Setenv("MY_HOME", "/tmp")
+
+	result := ReplaceByEnvVars(text, "ENV{", "}")
 
 	if result != expected {
 		t.Errorf("Expected: %v, But it was: %v", expected, result)

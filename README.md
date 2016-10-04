@@ -19,14 +19,13 @@ Example 1:
 
 ```golang
 text := "My name is @|name1|@, your name is @|name2|@ and we are in @|country|@"
-expected := "My name is Paulo Coutinho, your name is Guest and we are in Brasil"
 data := map[string]string{
     "name1":   "Paulo Coutinho",
     "name2":   "Guest",
     "country": "Brasil",
 }
 
-result := ReplaceByMapOfString(text, "@|", "|@", data)
+result := replacer.ReplaceByMapOfString(text, "@|", "|@", data)
 
 // result: My name is Paulo Coutinho, your name is Guest and we are in Brasil
 ```
@@ -34,12 +33,9 @@ result := ReplaceByMapOfString(text, "@|", "|@", data)
 Example 2:
 ```golang
 text := "The home var is: ENV{MY_HOME}"
-expected := "The home var is: /tmp"
-os.Setenv("MY_HOME", "/tmp")
+result := replacer.ReplaceByEnvVars(text, "ENV{", "}")
 
-result, _ := ReplaceFunc(text, "ENV{", "}", os.Getenv)
-
-// result: The home var is: /tmp
+// result: The home var is: /Users/paulo
 ```
 
 You can check all examples in "goreplacer_test.go"

@@ -3,6 +3,7 @@ package goreplace
 import (
 	"errors"
 	"log"
+	"os"
 	"strings"
 )
 
@@ -85,5 +86,10 @@ func ReplaceByMapOfString(text, startText, endText string, data map[string]strin
 		return ""
 	})
 
+	return result
+}
+
+func ReplaceByEnvVars(text, startText, endText string) string {
+	result, _ := ReplaceFunc(text, startText, endText, os.Getenv)
 	return result
 }
